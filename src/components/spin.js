@@ -1,7 +1,10 @@
+import { ref } from 'vue'
+export const text=ref('')
 export default {
   data() {
     return {
       whellDeg: 0,
+      newItem:text.value,
       rolling: false,
       freeze: false,
       initialItem: [
@@ -16,10 +19,16 @@ export default {
       ]
     }
   },
-  computed() {
-    prizeList = () => {
-
-      this.initialItem.push({name:"prize"})
+  compute: {
+    prizeArray () {
+      // return this.initialItem.push({name:newItem})
+    }
+  },
+  methods :{ 
+    addPrize () {
+      this.initialItem.push({name:this.newItem})
+      console.log(text.value)
     }
   }
+  
 }

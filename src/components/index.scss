@@ -1,12 +1,74 @@
-.prize-list{
-  
+* {
+  margin: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
 }
-.wheel-wrapper{
-position: relative;
-width: 400px;
-height: 400px;
-margin: auto;
-.whell-point{
+img {
+  height: auto;
+  width: 100%;
+  display: block;
+}
+#app {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  gap: 10rem;
+  background-color: bisque;
+}
+.prize-lists {
+  flex: 50%;
+  max-width: 20%;
+  background-color: rgba(255, 255, 255, 0.562);
+  padding: 20px;
+  border-radius: 10px;
+  .input-prize {
+    input {
+      width: 60%;
+      border-radius: 10px;
+      padding: 5px 10px;
+      margin: 20px;
+    }
+    .btn-add{
+      padding: 5px 10px;
+      border-radius: 10px;
+    }
+  }
+  .prize-name-wrapper {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    .prize-name{
+      outline: none;
+      border: none;
+      background-color: #cecdcd;
+      padding: 5px 10px ;
+      border-radius: 5px;
+      max-width: 200px;
+      overflow: hidden;
+
+    }
+    .prize-pobability {
+      max-width: 60px;
+      outline: none;
+      border: none;
+      background-color: #cecdcd;
+      padding: 5px 10px ;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+  }
+  .delete,
+  .update {
+    max-width: 20px;
+    max-height: 20px;
+  }
+}
+.wheel-wrapper {
+  position: relative;
+  width: 600px;
+  height: 600px;
+  .whell-point {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -16,28 +78,50 @@ margin: auto;
     height: 50px;
     border-radius: 100%;
     text-align: center;
+    line-height: 50px;
     z-index: 111;
-}
-.wheel-bg{
+    &::after {
+      position: absolute;
+      content: "";
+      top: -30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-width: 0 8px 40px;
+      border-style: solid;
+      border-color: transparent transparent red;
+      z-index: -1;
+    }
+  }
+  .wheel-bg {
     width: 100%;
     height: 100%;
-    .prize-list{
-        position:relative;
+    transition: 4s all;
+    border-radius: 1000px;
+    background-color: rgb(179, 231, 184);
+    overflow: hidden;
+    .prize-list {
+      position: relative;
       width: 100%;
       height: 100%;
-      .prize-item-wrapper{
+      text-align: center;
+      .prize-item-wrapper {
+        width:300px;
+        height: 300px;
         position: absolute;
         top: 0;
         left: 50%;
         transform: translateX(-50%);
-        width: 400px;
-        height: 400px;
-        .prize-item{
-   
-            width: 100%;
-            height: 100%;
+        .prize-item {
+          width: 100%;
+          height: 100%;
+          transform-origin: bottom;
+          .prize-name {
+            padding: 16px 0;
+            max-width: 50%;
+            margin: auto;
+          }
         }
       }
     }
-}
+  }
 }
